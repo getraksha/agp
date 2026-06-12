@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1240 520" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5b6e93"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="520" rx="18" fill="#0b1220"/>
+  <rect x="1" y="1" width="1238" height="518" rx="17" fill="none" stroke="#1c2942"/>
+
+  <text x="48" y="52" fill="#e6edf7" font-size="22" font-weight="700">Community Edition — the whole plane on your machine</text>
+  <text x="48" y="76" fill="#7d8eb0" font-size="13.5">Single static binaries · state in SQLite under ~/.agp · zero external infrastructure · one CLI manages everything</text>
+
+  <!-- clients row -->
+  <text x="48" y="124" fill="#5b6e93" font-size="11" font-weight="700" letter-spacing="2">YOUR MCP CLIENTS</text>
+  <g font-size="12.5" fill="#cdd9ef" text-anchor="middle">
+    <rect x="48"  y="136" width="150" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="123" y="161">Claude Desktop</text>
+    <rect x="210" y="136" width="140" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="280" y="161">Claude Code</text>
+    <rect x="362" y="136" width="110" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="417" y="161">Cursor</text>
+    <rect x="484" y="136" width="116" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="542" y="161">VS Code</text>
+    <rect x="612" y="136" width="100" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="662" y="161">Codex</text>
+    <rect x="724" y="136" width="150" height="40" rx="10" fill="#121a2b" stroke="#233048"/><text x="799" y="161">custom agents</text>
+  </g>
+
+  <!-- bridge chip -->
+  <rect x="320" y="206" width="280" height="36" rx="18" fill="#0f1830" stroke="url(#accent2)" stroke-width="1.6"/>
+  <text x="460" y="229" fill="#cdd9ef" font-size="12.5" font-weight="700" text-anchor="middle">AGP Connect — stdio bridge</text>
+  <line x1="460" y1="176" x2="460" y2="204" stroke="#34507e" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="460" y1="242" x2="460" y2="270" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrB)"/>
+  <text x="475" y="262" fill="#5b6e93" font-size="10.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">JWT per call</text>
+
+  <!-- plane plate -->
+  <rect x="48" y="274" width="930" height="170" rx="16" fill="#0e1626" stroke="#233048"/>
+  <rect x="48" y="274" width="930" height="5" rx="2.5" fill="url(#accent2)"/>
+  <text x="72" y="302" fill="#5b6e93" font-size="11" font-weight="700" letter-spacing="2">AGP COMMUNITY EDITION · ~/.agp · MANAGED BY THE AGP CLI</text>
+
+  <!-- proxy card inside plane -->
+  <rect x="356" y="318" width="208" height="56" rx="12" fill="#0f1830" stroke="#3b82f6" stroke-width="1.8"/>
+  <text x="460" y="342" fill="#e6edf7" font-size="14.5" font-weight="800" text-anchor="middle">agp-proxy</text>
+  <text x="460" y="362" fill="#7d8eb0" font-size="11.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">:8443 · every call</text>
+
+  <!-- service chips -->
+  <g font-size="11.5" fill="#cdd9ef" text-anchor="middle">
+    <rect x="72"  y="318" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="136" y="338">identity</text>
+    <rect x="212" y="318" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="276" y="338">behavior-profile</text>
+    <rect x="72"  y="356" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="136" y="376">registry</text>
+    <rect x="212" y="356" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="276" y="376">policy</text>
+    <rect x="72"  y="394" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="136" y="414">approval</text>
+    <rect x="212" y="394" width="128" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="276" y="414">audit</text>
+    <rect x="356" y="394" width="208" height="30" rx="8" fill="#121a2b" stroke="#233048"/><text x="460" y="414">approval-ops · agent meta-tools</text>
+  </g>
+
+  <!-- console card -->
+  <rect x="600" y="318" width="176" height="106" rx="12" fill="#121a2b" stroke="#233048"/>
+  <rect x="600" y="318" width="176" height="4" rx="2" fill="#7c3aed"/>
+  <text x="688" y="348" fill="#e6edf7" font-size="13.5" font-weight="700" text-anchor="middle">Admin Console</text>
+  <text x="688" y="368" fill="#93a4bf" font-size="11.5" text-anchor="middle">agents · profiles · catalog</text>
+  <text x="688" y="385" fill="#93a4bf" font-size="11.5" text-anchor="middle">approvals · activity feed</text>
+  <text x="688" y="410" fill="#7d8eb0" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">:8090</text>
+
+  <!-- cli card -->
+  <rect x="800" y="318" width="156" height="106" rx="12" fill="#121a2b" stroke="#233048"/>
+  <rect x="800" y="318" width="156" height="4" rx="2" fill="#16a34a"/>
+  <text x="878" y="348" fill="#e6edf7" font-size="13.5" font-weight="700" text-anchor="middle">agp CLI</text>
+  <g fill="#93a4bf" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="878" y="370">init · fetch · start</text>
+    <text x="878" y="387">setup · connect</text>
+    <text x="878" y="404">status · logs · audit</text>
+  </g>
+
+  <!-- backends -->
+  <rect x="1010" y="296" width="184" height="126" rx="14" fill="#121a2b" stroke="#233048"/>
+  <rect x="1010" y="296" width="184" height="4" rx="2" fill="#16a34a"/>
+  <text x="1102" y="330" fill="#e6edf7" font-size="14" font-weight="700" text-anchor="middle">Your MCP servers</text>
+  <text x="1102" y="354" fill="#93a4bf" font-size="11.5" text-anchor="middle">GitHub · email · databases</text>
+  <text x="1102" y="371" fill="#93a4bf" font-size="11.5" text-anchor="middle">internal tools</text>
+  <text x="1102" y="398" fill="#5b6e93" font-size="10.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">governed, credential-injected</text>
+  <line x1="564" y1="346" x2="1006" y2="346" stroke="#16a34a" stroke-width="2.2" marker-end="url(#arrG)"/>
+
+  <!-- footer -->
+  <text x="48" y="486" fill="#5b6e93" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">curl install.sh | sh  →  agp init  →  agp fetch all  →  agp start all  →  agp setup</text>
+  <text x="1194" y="486" fill="#5b6e93" font-size="12" text-anchor="end">same architecture scales to enterprise →</text>
+</svg>

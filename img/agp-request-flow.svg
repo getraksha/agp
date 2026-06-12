@@ -1,0 +1,131 @@
+<svg viewBox="0 0 1240 560" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="proxyStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5b6e93"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d97706"/>
+    </marker>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- canvas -->
+  <rect width="1240" height="560" rx="18" fill="#0b1220"/>
+  <rect x="1" y="1" width="1238" height="558" rx="17" fill="none" stroke="#1c2942"/>
+
+  <!-- title -->
+  <text x="48" y="56" fill="#e6edf7" font-size="22" font-weight="700">Every tool call answers four questions — before it executes</text>
+  <text x="48" y="80" fill="#7d8eb0" font-size="13.5">Runtime enforcement the agent cannot route around · deny by default · evidence by design</text>
+
+  <!-- AGENT card -->
+  <g>
+    <rect x="48" y="190" width="180" height="120" rx="14" fill="#121a2b" stroke="#233048"/>
+    <rect x="48" y="190" width="180" height="4" rx="2" fill="#475569"/>
+    <text x="138" y="234" fill="#e6edf7" font-size="15.5" font-weight="700" text-anchor="middle">AI agent</text>
+    <text x="138" y="256" fill="#93a4bf" font-size="12" text-anchor="middle">Claude · Cursor · Codex</text>
+    <text x="138" y="274" fill="#93a4bf" font-size="12" text-anchor="middle">any MCP client</text>
+    <text x="138" y="297" fill="#5b6e93" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">holds no tool credentials</text>
+  </g>
+
+  <!-- call arrow into proxy -->
+  <line x1="228" y1="250" x2="298" y2="250" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="263" y="238" fill="#7d8eb0" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">tools/call</text>
+
+  <!-- PROXY -->
+  <g filter="url(#glow)">
+    <rect x="302" y="168" width="220" height="164" rx="16" fill="#0f1830" stroke="url(#proxyStroke)" stroke-width="2"/>
+  </g>
+  <rect x="302" y="168" width="220" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="412" y="206" fill="#e6edf7" font-size="17" font-weight="800" text-anchor="middle">AGP Proxy</text>
+  <text x="412" y="226" fill="#93a4bf" font-size="12" text-anchor="middle">the enforcement point</text>
+  <text x="412" y="254" fill="#cdd9ef" font-size="12" text-anchor="middle">authenticates · scopes · decides</text>
+  <text x="412" y="272" fill="#cdd9ef" font-size="12" text-anchor="middle">injects credentials · records</text>
+  <text x="412" y="302" fill="#5b6e93" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">fail-closed · stateless</text>
+
+  <!-- forward arrow to backends -->
+  <line x1="522" y1="250" x2="1000" y2="250" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowBlue)" stroke-dasharray="none"/>
+  <rect x="700" y="230" width="76" height="24" rx="12" fill="#0c2419" stroke="#1a7a4a"/>
+  <text x="738" y="246" fill="#4ade80" font-size="11.5" font-weight="700" text-anchor="middle">ALLOW →</text>
+
+  <!-- BACKENDS card -->
+  <g>
+    <rect x="1004" y="178" width="190" height="144" rx="14" fill="#121a2b" stroke="#233048"/>
+    <rect x="1004" y="178" width="190" height="4" rx="2" fill="#16a34a"/>
+    <text x="1099" y="216" fill="#e6edf7" font-size="15.5" font-weight="700" text-anchor="middle">Your MCP servers</text>
+    <text x="1099" y="240" fill="#93a4bf" font-size="12" text-anchor="middle">GitHub · email · databases</text>
+    <text x="1099" y="258" fill="#93a4bf" font-size="12" text-anchor="middle">internal tools · anything MCP</text>
+    <text x="1099" y="286" fill="#5b6e93" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">credentials injected here,</text>
+    <text x="1099" y="302" fill="#5b6e93" font-size="11" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">never given to the agent</text>
+  </g>
+
+  <!-- four question cards -->
+  <g>
+    <!-- Q1 identity -->
+    <rect x="120" y="392" width="236" height="92" rx="12" fill="#121a2b" stroke="#233048"/>
+    <circle cx="148" cy="420" r="13" fill="#13233f" stroke="#2563eb"/>
+    <text x="148" y="424.5" fill="#60a5fa" font-size="12.5" font-weight="800" text-anchor="middle">1</text>
+    <text x="170" y="425" fill="#e6edf7" font-size="13.5" font-weight="700">Who is this agent?</text>
+    <text x="148" y="450" fill="#93a4bf" font-size="11.5">Identity — verified JWT per call,</text>
+    <text x="148" y="466" fill="#93a4bf" font-size="11.5">revocable credentials</text>
+
+    <!-- Q2 profile -->
+    <rect x="380" y="392" width="236" height="92" rx="12" fill="#121a2b" stroke="#233048"/>
+    <circle cx="408" cy="420" r="13" fill="#1d1736" stroke="#7c3aed"/>
+    <text x="408" y="424.5" fill="#a78bfa" font-size="12.5" font-weight="800" text-anchor="middle">2</text>
+    <text x="430" y="425" fill="#e6edf7" font-size="13.5" font-weight="700">Is this tool granted?</text>
+    <text x="408" y="450" fill="#93a4bf" font-size="11.5">Behavior Profile — the approved</text>
+    <text x="408" y="466" fill="#93a4bf" font-size="11.5">envelope; unseen tools don't exist</text>
+
+    <!-- Q3 policy -->
+    <rect x="640" y="392" width="236" height="92" rx="12" fill="#121a2b" stroke="#233048"/>
+    <circle cx="668" cy="420" r="13" fill="#2b1c0c" stroke="#d97706"/>
+    <text x="668" y="424.5" fill="#fbbf24" font-size="12.5" font-weight="800" text-anchor="middle">3</text>
+    <text x="690" y="425" fill="#e6edf7" font-size="13.5" font-weight="700">How risky, right now?</text>
+    <text x="668" y="450" fill="#93a4bf" font-size="11.5">Policy — facts-driven: reads flow,</text>
+    <text x="668" y="466" fill="#93a4bf" font-size="11.5">destructive ops escalate</text>
+
+    <!-- Q4 approval -->
+    <rect x="900" y="392" width="236" height="92" rx="12" fill="#121a2b" stroke="#233048"/>
+    <circle cx="928" cy="420" r="13" fill="#13233f" stroke="#2563eb"/>
+    <text x="928" y="424.5" fill="#60a5fa" font-size="12.5" font-weight="800" text-anchor="middle">4</text>
+    <text x="950" y="425" fill="#e6edf7" font-size="13.5" font-weight="700">Does a human agree?</text>
+    <text x="928" y="450" fill="#93a4bf" font-size="11.5">Approval — held calls wait for a</text>
+    <text x="928" y="466" fill="#93a4bf" font-size="11.5">reviewer's explicit decision</text>
+  </g>
+
+  <!-- connectors proxy -> questions -->
+  <path d="M 360 332 C 320 360, 270 368, 240 390" fill="none" stroke="#34507e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 400 332 C 420 356, 470 366, 496 390" fill="none" stroke="#34507e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 460 332 C 560 362, 680 368, 754 390" fill="none" stroke="#34507e" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <path d="M 510 320 C 700 360, 900 368, 1014 390" fill="none" stroke="#34507e" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- HOLD ribbon -->
+  <g>
+    <rect x="560" y="116" width="430" height="34" rx="17" fill="#1b1407" stroke="#7c5410"/>
+    <rect x="572" y="124" width="52" height="18" rx="9" fill="#2b1c0c" stroke="#d97706"/>
+    <text x="598" y="137.5" fill="#fbbf24" font-size="10.5" font-weight="800" text-anchor="middle">HOLD</text>
+    <text x="636" y="138" fill="#d8c39a" font-size="12">risky call pauses · human approves or denies · then it runs</text>
+  </g>
+  <path d="M 522 200 C 540 170, 548 152, 560 138" fill="none" stroke="#d97706" stroke-width="1.8" marker-end="url(#arrowAmber)" stroke-dasharray="5 4"/>
+
+  <!-- audit bar -->
+  <rect x="48" y="510" width="1146" height="30" rx="15" fill="#0c1626" stroke="#1d3a5f"/>
+  <circle cx="70" cy="525" r="5" fill="#22d3ee"/>
+  <text x="84" y="529.5" fill="#9fdcec" font-size="12" font-weight="600">Audit — every call, decision, approval, and operator change · append-only · generated by the infrastructure, not the agent</text>
+  <line x1="412" y1="332" x2="412" y2="508" stroke="#1d3a5f" stroke-width="1.4" stroke-dasharray="3 5"/>
+  <line x1="1018" y1="484" x2="1018" y2="508" stroke="#1d3a5f" stroke-width="1.4" stroke-dasharray="3 5"/>
+</svg>
