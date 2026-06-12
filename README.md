@@ -44,12 +44,13 @@ The admin console is at `http://localhost:8090` (credentials are printed by `agp
 
 ## Supported platforms
 
-| OS      | Architectures   |
-|---------|-----------------|
-| macOS   | arm64, amd64    |
-| Linux   | amd64, arm64    |
+| OS      | Architectures   | Status       |
+|---------|-----------------|--------------|
+| macOS   | arm64, amd64    | supported    |
+| Linux   | amd64, arm64    | supported    |
+| Windows | amd64, arm64    | experimental |
 
-Windows is not supported yet.
+Windows binaries ship with each release but have not been exercised end-to-end yet. `install.sh` needs a POSIX shell, so on Windows download `agp_<version>_windows-<arch>.tar.gz` from the release page, extract `agp.exe`, and put it on your `PATH`.
 
 ## Releases & verifying downloads
 
