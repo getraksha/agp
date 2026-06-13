@@ -19,7 +19,7 @@ Your agents (Claude Desktop, Claude Code, Cursor, VS Code, Codex, or your own) c
 
 ## What's in Community Edition
 
-Everything runs on your machine: single static binaries, state in SQLite under `~/.agp`, zero external infrastructure. Free to use, including internal commercial use ([Community License](LICENSE.md)).
+Everything runs on your machine: single static binaries, state in SQLite under `~/.agp`, zero external infrastructure. **Free-to-use** for everyone — individuals, startups, and enterprises alike — with no caps on agents, tools, or users and no time limit ([Community License](LICENSE.md)). **No telemetry by default** — nothing phones home; a governance layer should be as auditable in its own behavior as the agents it governs.
 
 | Component | What it owns |
 |---|---|
@@ -86,7 +86,7 @@ shasum -a 256 -c SHA256SUMS --ignore-missing
 
 ## What this repository is (and isn't)
 
-This repository is the **distribution channel** for AGP Community Edition: this README, the install script, and the release binaries. The AGP source code is **not public**. The install script is MIT-licensed; the binaries are free to use under the [Community License](LICENSE.md).
+This repository is the **distribution channel** for AGP Community Edition: this README, the install script, and the release binaries. AGP Community Edition is **free-to-use proprietary software** (like Docker Desktop or the Datadog Agent) — free to download and run, but **not open source**; the AGP source code is not public. The install script is MIT-licensed; the binaries are free to use under the [Community License](LICENSE.md). Hosted, team, and enterprise editions are available separately.
 
 ## Documentation & support
 
