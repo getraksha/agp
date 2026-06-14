@@ -6,6 +6,19 @@ AI agents are no longer just answering questions — they read your repositories
 
 AGP is the missing layer: **runtime enforcement infrastructure that sits between your AI agents and every MCP tool they can invoke.** It is not an SDK, a prompt, or a convention the agent can ignore — it is a proxy the agent cannot route around. No call reaches a tool backend unless AGP has authenticated the agent, checked its approved operating envelope, evaluated policy, and made an explicit decision to allow it. Risky operations pause for human approval *before* they execute. Everything — every call, every decision, every operator change — lands in an append-only audit trail.
 
+## Contents
+
+- [How it operates](#how-it-operates)
+- [What's in Community Edition](#whats-in-community-edition)
+- [Quickstart](#quickstart)
+  - [macOS & Linux](#macos--linux)
+  - [Windows](#windows)
+- [Who this protects](#who-this-protects)
+- [Supported platforms](#supported-platforms)
+- [Releases & verifying downloads](#releases--verifying-downloads)
+- [What this repository is (and isn't)](#what-this-repository-is-and-isnt)
+- [Documentation & support](#documentation--support)
+
 ## How it operates
 
 Your agents (Claude Desktop, Claude Code, Cursor, VS Code, Codex, or your own) connect to AGP instead of connecting to MCP servers directly. Every tool call then passes through four questions — answered at runtime, on every call:
@@ -38,6 +51,8 @@ Everything runs on your machine: single static binaries, state in SQLite under `
 
 ## Quickstart
 
+### macOS & Linux
+
 ```sh
 # 1. Install the CLI
 curl -fsSL https://raw.githubusercontent.com/getraksha/agp/main/install.sh | sh
@@ -58,6 +73,23 @@ agp setup --agent-id my-agent --client claude-desktop
 
 The admin console is at `http://localhost:8090` (credentials are printed by `agp init`). Register your MCP servers in the console's tool catalog, grant tools to your agent's behavior profile, and watch every call appear in the Activity feed — allowed, denied, or held for your approval.
 
+### Windows
+
+`install.sh` needs a POSIX shell, so on Windows install the CLI with **PowerShell** instead — then steps 2–5 are identical:
+
+```powershell
+# 1. Install the CLI (downloads, verifies checksum, adds to PATH for this session too)
+irm https://raw.githubusercontent.com/getraksha/agp/main/install.ps1 | iex
+
+# 2-5. Same as macOS/Linux
+agp init
+agp fetch all
+agp start all
+agp setup --agent-id my-agent --client claude-desktop
+```
+
+Prefer to install by hand? Download `agp_<version>_windows-<arch>.tar.gz` from the [releases page](https://github.com/getraksha/agp/releases/latest), extract `agp.exe` with `tar -xf`, and add its folder to your `PATH`.
+
 ## Who this protects
 
 **Individuals:** you've connected agents to your email, files, and accounts. AGP means an agent that goes off the rails — prompt-injected, confused, or just over-eager — cannot quietly delete, send, or trade anything you didn't grant, and destructive operations wait for your explicit click.
@@ -70,9 +102,9 @@ The admin console is at `http://localhost:8090` (credentials are printed by `agp
 |---------|-----------------|--------------|
 | macOS   | arm64, amd64    | supported    |
 | Linux   | amd64, arm64    | supported    |
-| Windows | amd64, arm64    | experimental |
+| Windows | amd64, arm64    | supported    |
 
-Windows binaries ship with each release but have not been exercised end-to-end yet. `install.sh` needs a POSIX shell, so on Windows download `agp_<version>_windows-<arch>.tar.gz` from the release page, extract `agp.exe`, and put it on your `PATH`.
+On Windows, install the CLI with the PowerShell one-liner in the [Windows section above](#windows) (`install.sh` itself needs a POSIX shell).
 
 ## Releases & verifying downloads
 
