@@ -10,6 +10,8 @@
 #                    otherwise ~/.local/bin)
 #   AGP_BASE_URL     alternate asset base URL (internal mirrors / testing);
 #                    assets are fetched from $AGP_BASE_URL/<asset> directly
+#   AGP_NO_MODIFY_PATH  set to any value to skip editing your shell profile;
+#                    the installer will only print the PATH line instead
 #
 # While the distribution repo is private, anonymous downloads return 404.
 # The script then falls back to the GitHub CLI: install gh, run
@@ -160,11 +162,55 @@ cp "$tmpdir/agp" "$install_dir/agp"
 
 say ""
 say "agp ${version} installed to ${install_dir}/agp"
+
+# ── PATH setup ───────────────────────────────────────────────────────────────
+# Three cases: already on PATH (nothing to do); user opted out
+# (AGP_NO_MODIFY_PATH); otherwise persist to the shell profile so new shells
+# work, and print the one line that activates the current shell. A piped
+# installer runs in a subshell and cannot change the parent shell's PATH — no
+# installer can — so the current session needs that one line or a new tab.
+activate_line="export PATH=\"${install_dir}:\$PATH\""
+
 case ":${PATH}:" in
-  *":${install_dir}:"*) ;;
-  *) say "NOTE: ${install_dir} is not on your PATH. Add it with:"
-     say "  export PATH=\"${install_dir}:\$PATH\"" ;;
+  *":${install_dir}:"*)
+    say ""
+    say "agp is on your PATH — you're ready to go." ;;
+  *)
+    if [ -n "${AGP_NO_MODIFY_PATH:-}" ]; then
+      say ""
+      say "${install_dir} is not on your PATH (AGP_NO_MODIFY_PATH set — profile left untouched)."
+      say "Add it with:  ${activate_line}"
+    else
+      # Choose the profile file for the user's shell.
+      is_fish=0
+      case "$(basename "${SHELL:-sh}")" in
+        zsh)  profile="${ZDOTDIR:-$HOME}/.zshrc" ;;
+        bash) if [ -f "$HOME/.bash_profile" ]; then profile="$HOME/.bash_profile"; else profile="$HOME/.bashrc"; fi ;;
+        fish) profile="$HOME/.config/fish/config.fish"; is_fish=1 ;;
+        *)    profile="$HOME/.profile" ;;
+      esac
+      [ "$is_fish" -eq 1 ] && activate_line="fish_add_path ${install_dir}"
+
+      mkdir -p "$(dirname "$profile")" 2>/dev/null || true
+      added="no"
+      if [ -e "$profile" ] && grep -F "$install_dir" "$profile" >/dev/null 2>&1; then
+        added="already"
+      elif { printf '\n# Added by AGP install.sh (https://github.com/%s)\n%s\n' "$REPO" "$activate_line" >> "$profile"; } 2>/dev/null; then
+        added="yes"
+      fi
+
+      say ""
+      case "$added" in
+        yes)     say "Added ${install_dir} to your PATH in ${profile}." ;;
+        already) say "${install_dir} is already configured in ${profile}." ;;
+        *)       say "Could not update ${profile} automatically — add the line below yourself." ;;
+      esac
+      say "New terminals will find agp automatically. To use it in THIS terminal now, run:"
+      say ""
+      say "    ${activate_line}"
+    fi ;;
 esac
+
 say ""
 say "Next steps:"
 say "  agp init        # initialize ~/.agp (secrets, config, CLI profile)"
