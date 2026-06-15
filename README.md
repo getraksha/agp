@@ -13,6 +13,7 @@ AGP is the missing layer: **runtime enforcement infrastructure that sits between
 - [Quickstart](#quickstart)
   - [macOS & Linux](#macos--linux)
   - [Windows](#windows)
+- [The console](#the-console)
 - [Who this protects](#who-this-protects)
 - [Supported platforms](#supported-platforms)
 - [Releases & verifying downloads](#releases--verifying-downloads)
@@ -89,6 +90,25 @@ agp setup --agent-id my-agent --client claude-desktop
 ```
 
 Prefer to install by hand? Download `agp_<version>_windows-<arch>.tar.gz` from the [releases page](https://github.com/getraksha/agp/releases/latest), extract `agp.exe` with `tar -xf`, and add its folder to your `PATH`.
+
+## The console
+
+The admin console (`http://localhost:8090`) is where you register MCP servers, grant tools to each agent's behavior profile, approve held operations, and watch every call land in the audit trail — in real time, all on your machine.
+
+<table>
+  <tr>
+    <td width="50%"><img src="img/agp-activity-feed-view.png" alt="AGP Activity feed" width="100%"><br><sub><b>Activity</b> — the live governance feed: every tool call, approval decision, and operator change, allowed / held / denied.</sub></td>
+    <td width="50%"><img src="img/agp-approvals-view.png" alt="AGP Approvals queue" width="100%"><br><sub><b>Approvals</b> — the human-in-the-loop queue with risk tiers; high-risk operations pause here before they execute.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="img/agp-tools-view.png" alt="AGP Tools catalog" width="100%"><br><sub><b>Tools</b> — the governed catalog: backends, versions, and the operation facts (read / write / execute) policy reasons over.</sub></td>
+    <td width="50%"><img src="img/agp-behavior-profiles-view.png" alt="AGP Behavior profiles" width="100%"><br><sub><b>Behavior profiles</b> — each agent's fail-closed tool envelope; an agent can only see and call what's granted here.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="img/agp-agents-view.png" alt="AGP Agents" width="100%"><br><sub><b>Agents</b> — per-agent identity and credential lifecycle, instead of shared tokens.</sub></td>
+    <td width="50%"><img src="img/agp-dashboard-view.png" alt="AGP Dashboard" width="100%"><br><sub><b>Dashboard</b> — control-plane health and inventory at a glance.</sub></td>
+  </tr>
+</table>
 
 ## Who this protects
 
