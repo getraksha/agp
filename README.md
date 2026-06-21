@@ -44,7 +44,7 @@ Everything runs on your machine: single static binaries, state in SQLite under `
 | **Policy** | Facts-driven risk evaluation (OPA) — allow / deny / hold |
 | **Approval** | Human-in-the-loop queue for held operations |
 | **Audit** | Append-only event store: tool calls *and* operator changes |
-| **Approval Ops** | Platform MCP server — agents list / proceed with / cancel their own held approvals |
+| **Approval Ops** | Platform MCP server — agents list, inspect, proceed with, or cancel their own held approvals |
 | **Admin Console** | Web UI — agents, profiles, catalog, approvals, live activity feed |
 | **`agp` CLI** | Installs, starts, and manages all of the above; bridges your MCP clients in |
 
@@ -64,7 +64,7 @@ agp init
 # 3. Download the service binaries for your platform
 agp fetch all
 
-# 4. Start the stack (8 services, health-checked)
+# 4. Start the stack (9 services, health-checked)
 agp start all
 agp status
 
@@ -72,7 +72,9 @@ agp status
 agp setup --agent-id my-agent --client claude-desktop
 ```
 
-The admin console is at `http://localhost:8090` (credentials are printed by `agp init`). Register your MCP servers in the console's tool catalog, grant tools to your agent's behavior profile, and watch every call appear in the Activity feed — allowed, denied, or held for your approval.
+The admin console is at `http://localhost:27868` (credentials are printed by `agp init`). Register your MCP servers in the console's tool catalog, grant tools to your agent's behavior profile, and watch every call appear in the Activity feed — allowed, denied, or held for your approval.
+
+New here? The [Get Started guide](https://docs.getraksha.com/docs/get-started/overview) walks through this end to end, and the [walkthrough](https://docs.getraksha.com/docs/walkthrough/example) governs a real MCP server step by step.
 
 ### Windows
 
@@ -93,7 +95,7 @@ Prefer to install by hand? Download `agp_<version>_windows-<arch>.tar.gz` from t
 
 ## The console
 
-The admin console (`http://localhost:8090`) is where you register MCP servers, grant tools to each agent's behavior profile, approve held operations, and watch every call land in the audit trail — in real time, all on your machine.
+The admin console (`http://localhost:27868`) is where you register MCP servers, grant tools to each agent's behavior profile, approve held operations, and watch every call land in the audit trail — in real time, all on your machine.
 
 <table>
   <tr>
@@ -142,6 +144,9 @@ This repository is the **distribution channel** for AGP Community Edition: this 
 
 ## Documentation & support
 
+- [Get Started](https://docs.getraksha.com/docs/get-started/overview) — install, the console, your first governed agent
+- [Walkthrough](https://docs.getraksha.com/docs/walkthrough/example) — govern a real MCP server, end to end
+- [Core workflows](https://docs.getraksha.com/docs/core-workflows/govern-mcp-server), [Operate &amp; troubleshoot](https://docs.getraksha.com/docs/operate/debugging), and the [CLI reference](https://docs.getraksha.com/docs/reference/cli)
 - [docs.getraksha.com](https://docs.getraksha.com) — architecture, concepts, threat models
 - `agp help` — full CLI reference
 - Questions, bug reports, feature requests: [GitHub Issues](https://github.com/getraksha/agp/issues)
