@@ -4,7 +4,7 @@
 
 AI agents are no longer just answering questions — they read your repositories, send your email, mutate your infrastructure, and touch your customers' data through MCP tools. Today, most of that happens with **no runtime governance at all**: every tool is visible to every agent, every call executes immediately, credentials sit next to the agent, and when something goes wrong there is no authoritative record of who did what, under whose approval, and why.
 
-AGP is the missing layer: **runtime enforcement infrastructure that sits between your AI agents and every MCP tool they can invoke.** It is not an SDK, a prompt, or a convention the agent can ignore — it is a proxy the agent cannot route around. No call reaches a tool backend unless AGP has authenticated the agent, checked its approved operating envelope, evaluated policy, and made an explicit decision to allow it. Risky operations pause for human approval *before* they execute. Everything — every call, every decision, every operator change — lands in an append-only audit trail.
+AGP is the missing layer: **runtime enforcement infrastructure that sits between your AI agents and every MCP tool they can invoke.** It is not an SDK, a prompt, or a convention the agent can ignore — it is a governance plane the agent cannot route around. Every call passes through an enforcement point your agents can't bypass, and no call reaches a tool backend unless AGP has authenticated the agent, checked its approved operating envelope, evaluated policy, and made an explicit decision to allow it. Risky operations pause for human approval *before* they execute. Everything — every call, every decision, every operator change — lands in an append-only audit trail.
 
 ## Contents
 
